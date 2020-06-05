@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>京东轮播图</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        .back {
+            height: 400px;
+            overflow: hidden;
+            margin-top: 50px;
+        }
+
+        .back li {
+            width: 700px;
+            height: 400px;
+            margin: 0 auto;
+        }
+
+        .back li.l1 {
+            background-image: url(jingdong/1.jpg);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .back li.l2 {
+            background-image: url(jingdong/2.jpg);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .back li.l3 {
+            background-image: url(jingdong/3.jpg);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .back li.l4 {
+            background-image: url(jingdong/4.jpg);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .back li.l5 {
+            background-image: url(jingdong/5.jpg);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .back li.l6 {
+            background-image: url(jingdong/6.jpg);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .back li.l7 {
+            background-image: url(jingdong/7.jpg);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .back li.l8 {
+            background-image: url(jingdong/8.jpg);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .point {
+            text-align: left;
+            margin-top: -30px;
+            margin-left: 300px;
+            ;
+        }
+
+        .point li {
+            width: 5px;
+            height: 5px;
+            border: 2px solid #fff;
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        .point li.active {
+            background: #fff;
+            /* box-shadow: 1px 1px rgba(255, 255, 255, 0.3); */
+        }
+
+        .btn {
+            position: relative;
+            top: 30px;
+        }
+
+        .btn span {
+            display: inline-block;
+            vertical-align: top;
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 0, 0, 0.3);
+            position: absolute;
+            top: -235px;
+            cursor: pointer;
+            text-align: center;
+            line-height: 40px;
+            color:rgba(255, 255, 255, 0.8);
+            font-size: 25px;
+        }
+
+        .btn .prev {
+            /* position: fixed; */
+            left: 290px;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+
+        .btn .next {
+            right: 290px;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="back">
+        <!-- 背景图片 -->
+        <li class="l1"></li>
+        <li class="l2"></li>
+      　<li class="l3"></li>
+        <li class="l4"></li>
+  　　  <li class="l5"></li>
+        <li class="l6"></li>
+        <li class="l7"></li>
+        <li class="l8"></li>
+    </ul>
+    <ul class="point">
+        <!-- 控制按钮 -->
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <div class="btn">
+        <!-- 左右控制按钮 -->
+        　　<span class="prev"><</span>
+        　　<span class="next">></span>
+    </div>
+</body>
+<script src="jQuery.js"></script>
+<script>
+    $(function () {
+        function banner(back, act, backbtn, pre, next) {         // a是背景图，b是active，c是背景对应按钮，d是上一页，e是下一页
+            index = 0;
+            len = $(back).length - 1;
+            function teb(index) {
+                $(backbtn).eq(index).addClass(act).siblings('').removeClass(act);
+                $(back).eq(index).fadeIn(300).addClass('curr').siblings('').fadeOut(300).removeClass('curr');
+            };
+            $(backbtn).click(function () {
+                index = $(this).index();
+                teb(index);
+            });
+            $(pre).click(function () {
+                index--;
+                if (index < 0) {
+                    index = len;
+                };
+                teb(index);
+            });
+            $(next).click(function () {
+                index++;
+                if (index > len) {
+                    index = 0;
+                };
+                teb(index);
+            });
+            function timeRun() {
+                time = setInterval(function () {
+                    index++;
+                    if (index > len) {
+                        index = 0;
+                    };
+                    teb(index);
+                }, 3000);
+            };
+            timeRun();
+        };
+        banner('.back>li', 'active', '.point>li', '.prev', '.next');
+    });
+</script>
+
+</html>

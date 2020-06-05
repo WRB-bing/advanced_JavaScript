@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>函数对象与运行过程</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+</body>
+<script>
+    var maxNum;
+    function max(){
+        for (var i=0;i<arguments.length-1;i++){
+            for (var j=0;j<arguments.length-i-1;j++){
+                if (arguments[j]>arguments[j+1]){
+                var t = arguments[j];
+                arguments[j] = arguments[j+1];
+                arguments[j+1] = t;
+                }
+            } 
+        }
+        maxNum = arguments[arguments.length-1];
+        return maxNum;
+    }
+    max.apply(max,[1,89,3,6]);
+    console.log("最大值是：" + maxNum);
+</script>
+</html>

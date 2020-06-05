@@ -1,0 +1,92 @@
+<!-- 6 -->
+<!-- 1.B 2.C 3.A 4.A 5.B -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>构造器的原型方法和正则表达式的规则</title>
+    <meta charset="utf-8">
+</head>
+<body>
+
+</body>
+<script>
+
+    var pattern= /<\/?\w+\/?>/ig; //在这里补全代码
+
+    // var pattern =/<p>|<Vp>/g;
+
+    var str = "<div>这里是div<p>里面的段落</p></div>";
+    
+    console.log(str.replace(pattern,""));//  在这里补全代码
+
+</script>
+</html>
+
+
+<!-- 7 -->
+
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+    <title>第七题</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+
+</body>
+<script>
+    var students = [
+        { id: 11, name: '小张', score: 80 },
+        { id: 22, name: '小王', score: 95 },
+        { id: 33, name: '小李', score: 50 },
+        { id: 44, name: '小刘', score: 45 },
+        { id: 55, name: '小徐', score: 84 },
+        { id: 66, name: '小红', score: 78 },
+        { id: 77, name: '小白', score: 100 },
+    ];
+    //任务1： 获取最高score值
+    var grades = students.map(function (e) {
+        return e.score;
+    });
+    var max = Math.max.apply(window, grades);
+    console.log(max);
+
+    //任务2： 判断是否包含不及格学生（小于60不及格）（包含打印true,不包含打印false）
+
+    var min = grades.some(function (e) {
+        if (e < 60) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    });
+    console.log(min);
+
+    //任务3.  求所有学生的平均分
+
+    var add = function (pre, cur) {
+        return pre + cur;
+    }
+    var avg = (grades.reduce(add)) / 7;
+    console.log(avg);
+
+    //任务4.  找出不及格学生的所有名字
+
+    students.filter(function (e) {
+        if (e.score < 60) {
+            console.log(e.name);
+        }
+    });
+
+    //任务5.  按成绩从高到低排序
+    var descendingOrder = students.sort(function (e1, e2) {
+        return e1.score - e2.score;
+    });
+    console.log(descendingOrder)
+
+</script>
+
+</html> -->
